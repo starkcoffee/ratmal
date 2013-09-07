@@ -34,19 +34,23 @@
       }
 
       function zeigeFächer(){
-        document.getElementById("fächer").innerHTML = data[i].fächer;
+        $("#fächer").html(data[i].fächer);
+        $("#fächer").siblings("button").hide();
       }
 
       function zeigeLeistungen(){
-        document.getElementById("leistungen").innerHTML = data[i].leistungen;
+        $("#leistungen").html(data[i].leistungen);
+        $("#leistungen").siblings("button").hide();
       }
 
       function zeigeZeit(){
-        document.getElementById("zeit").innerHTML = data[i].zeit;
+        $("#zeit").html(data[i].zeit);
+        $("#zeit").siblings("button").hide();
       }
 
       function zeigeArbeitsLand(){
-        document.getElementById("arbeitsLand").innerHTML = data[i].arbeitsLand;
+        $("#arbeitsLand").html(data[i].arbeitsLand);
+        $("#arbeitsLand").siblings("button").hide();
       }
     </script>
     <style>
@@ -65,18 +69,26 @@
     <div class=bio>
       <h3 id=name></h3>
       <a id=wikiseite href="" target="_blank"><img id=bild src=""/></a>
+      <div class=frage>
       <p>Zu welchen Fächern hat sie/er beigetragen?</p>
-      <button class=ratmal onclick="zeigeFächer(); $(this).hide();">Rat mal!</button>
+      <button class=ratmal onclick="zeigeFächer();">Rat mal!</button>
       <p id=fächer class="antwort"></p>
+      </div>
+      <div class=frage>
       <p>Was hat sie/er u.a. geleistet?</p>
-      <button class=ratmal onclick="zeigeLeistungen(); $(this).hide();">Rat mal!</button>
+      <button class=ratmal onclick="zeigeLeistungen();">Rat mal!</button>
       <p id=leistungen class="antwort"></p>
+      </div>
+      <div class=frage>
       <p>Wann hat sie/er gelebt?</p>
-      <button class=ratmal onclick="zeigeZeit(); $(this).hide();">Rat mal!</button>
+      <button class=ratmal onclick="zeigeZeit();">Rat mal!</button>
       <p id=zeit class="antwort"></p>
+      </div>
+      <div class=frage>
       <p>In welchen Ländern hat sie/er gearbeitet?</p>
-      <button class=ratmal onclick="zeigeArbeitsLand(); $(this).hide();">Rat mal!</button>
+      <button class=ratmal onclick="zeigeArbeitsLand();">Rat mal!</button>
       <p id=arbeitsLand class="antwort"></p>
+      </div>
     </div>
     <div class=controls>
     <a href="#" onclick="i++;neuerRätsel();">Next</a>
