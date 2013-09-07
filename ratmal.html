@@ -28,7 +28,6 @@
         document.getElementById("name").innerHTML = data[i].name;
         document.getElementById("wikiseite").setAttribute("href", data[i].wikiseite);
         document.getElementById("bild").setAttribute("src", data[i].bild);
-        i++;
       }
 
       function zeigeFächer(){
@@ -77,7 +76,7 @@
       <p id=arbeitsLand class="antwort"></p>
     </div>
     <div class=controls>
-    <a href="#" onclick="neuerRätsel();">Next</a>
+    <a href="#" onclick="i++;neuerRätsel();">Next</a>
     </div>
     <script type="text/javascript">
       neuerRätsel();
