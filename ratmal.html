@@ -2,6 +2,7 @@
   <head>
     <meta charset="utf-8">
     <script type="text/javascript">
+      var i=0;
       var data = [
         {
           "name" : "Hermann von Helmholtz",
@@ -23,26 +24,27 @@
         },
       ];
 
-      function neuerRätsel(person){
-        document.getElementById("name").innerHTML = person.name;
-        document.getElementById("wikiseite").setAttribute("href", person.wikiseite);
-        document.getElementById("bild").setAttribute("src", person.bild);
+      function neuerRätsel(){
+        document.getElementById("name").innerHTML = data[i].name;
+        document.getElementById("wikiseite").setAttribute("href", data[i].wikiseite);
+        document.getElementById("bild").setAttribute("src", data[i].bild);
+        i++;
       }
 
-      function zeigeFächer(person){
-        document.getElementById("fächer").innerHTML = person.fächer;
+      function zeigeFächer(){
+        document.getElementById("fächer").innerHTML = data[i].fächer;
       }
 
-      function zeigeLeistungen(person){
-        document.getElementById("leistungen").innerHTML = person.leistungen;
+      function zeigeLeistungen(){
+        document.getElementById("leistungen").innerHTML = data[i].leistungen;
       }
 
-      function zeigeZeit(person){
-        document.getElementById("zeit").innerHTML = person.zeit;
+      function zeigeZeit(){
+        document.getElementById("zeit").innerHTML = data[i].zeit;
       }
 
-      function zeigeArbeitsLand(person){
-        document.getElementById("arbeitsLand").innerHTML = person.arbeitsLand;
+      function zeigeArbeitsLand(){
+        document.getElementById("arbeitsLand").innerHTML = data[i].arbeitsLand;
       }
     </script>
     <style>
@@ -52,6 +54,9 @@
       .antwort {
         color: blue;
       }
+      .controls {
+        float: right;
+      }
     </style>
   </head>
   <body>
@@ -59,21 +64,23 @@
       <h3 id=name></h3>
       <a id=wikiseite href="" target="_blank"><img id=bild src=""/></a>
       <p>Zu welchen Fächern hat sie/er beigetragen?</p>
-      <button onclick="zeigeFächer(person); this.parentNode.removeChild(this);">Rat mal!</button>
+      <button onclick="zeigeFächer(); this.parentNode.removeChild(this);">Rat mal!</button>
       <p id=fächer class="antwort"></p>
       <p>Was hat sie/er u.a. geleistet?</p>
-      <button onclick="zeigeLeistungen(person); this.parentNode.removeChild(this);">Rat mal!</button>
+      <button onclick="zeigeLeistungen(); this.parentNode.removeChild(this);">Rat mal!</button>
       <p id=leistungen class="antwort"></p>
       <p>Wann hat sie/er gelebt?</p>
-      <button onclick="zeigeZeit(person); this.parentNode.removeChild(this);">Rat mal!</button>
+      <button onclick="zeigeZeit(); this.parentNode.removeChild(this);">Rat mal!</button>
       <p id=zeit class="antwort"></p>
       <p>In welchen Ländern hat sie/er gearbeitet?</p>
-      <button onclick="zeigeArbeitsLand(person); this.parentNode.removeChild(this);">Rat mal!</button>
+      <button onclick="zeigeArbeitsLand(); this.parentNode.removeChild(this);">Rat mal!</button>
       <p id=arbeitsLand class="antwort"></p>
     </div>
+    <div class=controls>
+    <a href="#" onclick="neuerRätsel();">Next</a>
+    </div>
     <script type="text/javascript">
-      var person = data[0];
-      neuerRätsel(person);
+      neuerRätsel();
     </script>
   </body>
 </html>
