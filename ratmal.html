@@ -1,6 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script src="jquery-2.0.3.js"></script>
     <script type="text/javascript">
       var i=0;
       var data = [
@@ -25,6 +26,8 @@
       ];
 
       function neuerRätsel(){
+        $.each($(".ratmal"), function(index, button){ $(button).show(); });
+        $.each($(".antwort"), function(index, antwort){ antwort.innerHTML = ""; });
         document.getElementById("name").innerHTML = data[i].name;
         document.getElementById("wikiseite").setAttribute("href", data[i].wikiseite);
         document.getElementById("bild").setAttribute("src", data[i].bild);
@@ -63,16 +66,16 @@
       <h3 id=name></h3>
       <a id=wikiseite href="" target="_blank"><img id=bild src=""/></a>
       <p>Zu welchen Fächern hat sie/er beigetragen?</p>
-      <button onclick="zeigeFächer(); this.parentNode.removeChild(this);">Rat mal!</button>
+      <button class=ratmal onclick="zeigeFächer(); $(this).hide();">Rat mal!</button>
       <p id=fächer class="antwort"></p>
       <p>Was hat sie/er u.a. geleistet?</p>
-      <button onclick="zeigeLeistungen(); this.parentNode.removeChild(this);">Rat mal!</button>
+      <button class=ratmal onclick="zeigeLeistungen(); $(this).hide();">Rat mal!</button>
       <p id=leistungen class="antwort"></p>
       <p>Wann hat sie/er gelebt?</p>
-      <button onclick="zeigeZeit(); this.parentNode.removeChild(this);">Rat mal!</button>
+      <button class=ratmal onclick="zeigeZeit(); $(this).hide();">Rat mal!</button>
       <p id=zeit class="antwort"></p>
       <p>In welchen Ländern hat sie/er gearbeitet?</p>
-      <button onclick="zeigeArbeitsLand(); this.parentNode.removeChild(this);">Rat mal!</button>
+      <button class=ratmal onclick="zeigeArbeitsLand(); $(this).hide();">Rat mal!</button>
       <p id=arbeitsLand class="antwort"></p>
     </div>
     <div class=controls>
