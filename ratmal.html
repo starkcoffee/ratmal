@@ -26,11 +26,11 @@
       ];
 
       function neuerRätsel(){
-        $.each($(".ratmal"), function(index, button){ $(button).show(); });
-        $.each($(".antwort"), function(index, antwort){ antwort.innerHTML = ""; });
-        document.getElementById("name").innerHTML = data[i].name;
-        document.getElementById("wikiseite").setAttribute("href", data[i].wikiseite);
-        document.getElementById("bild").setAttribute("src", data[i].bild);
+        $(".ratmal").show();
+        $(".antwort").html("");
+        $("#name").html(data[i].name);
+        $("#wikiseite").attr("href", data[i].wikiseite);
+        $("#bild").attr("src", data[i].bild);
       }
 
       function zeigeFächer(){
