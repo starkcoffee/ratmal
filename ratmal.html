@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      var data = [
+        {
+          "name" : "Hermann von Helmholtz",
+          "bild" : "http://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hermann_von_Helmholtz_by_Ludwig_Knaus.jpg/220px-Hermann_von_Helmholtz_by_Ludwig_Knaus.jpg",
+          "fächer" : "Physiologie, Medizin, Physik, Meteorologie",
+          "zeit" : "1821-1894",
+          "arbeitsLand" : "Deutschland",
+          "leistungen" : "Augenspiegel, Formulierung des Gesetzes von der Erhaltung der Energie in Lebewesen, Grundlagen der Hydrodynamik",
+          "wikiseite" : "http://de.wikipedia.org/wiki/Hermann_von_Helmholtz"
+        },
+        {
+          "name" : "Friedrich Schiller",
+          "bild" : "http://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Friedrich_schiller.jpg/220px-Friedrich_schiller.jpg",
+          "fächer" : "Dichtung, Philosophie, Geschichte",
+          "zeit" : "1759-1805",
+          "arbeitsLand" : "Deutschland",
+          "leistungen" : "Die Räuber, Philosophie der Physiologie, Über Anmut und Würde, Was heißt und zu welchem Ende studiert man Universalgeschichte?",
+          "wikiseite" : "http://de.wikipedia.org/wiki/Schiller"
+        },
+      ];
+
+      function neuerRätsel(person){
+        document.getElementById("name").innerHTML = person.name;
+        document.getElementById("wikiseite").setAttribute("href", person.wikiseite);
+        document.getElementById("bild").setAttribute("src", person.bild);
+      }
+
+      function zeigeFächer(person){
+        document.getElementById("fächer").innerHTML = person.fächer;
+      }
+
+      function zeigeLeistungen(person){
+        document.getElementById("leistungen").innerHTML = person.leistungen;
+      }
+
+      function zeigeZeit(person){
+        document.getElementById("zeit").innerHTML = person.zeit;
+      }
+
+      function zeigeArbeitsLand(person){
+        document.getElementById("arbeitsLand").innerHTML = person.arbeitsLand;
+      }
+    </script>
+    <style>
+      .bio {
+        text-align: center;
+      }
+      .antwort {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class=bio>
+      <h3 id=name></h3>
+      <a id=wikiseite href="" target="_blank"><img id=bild src=""/></a>
+      <p>Zu welchen Fächern hat sie/er beigetragen?</p>
+      <button onclick="zeigeFächer(person); this.parentNode.removeChild(this);">Rat mal!</button>
+      <p id=fächer class="antwort"></p>
+      <p>Was hat sie/er u.a. geleistet?</p>
+      <button onclick="zeigeLeistungen(person); this.parentNode.removeChild(this);">Rat mal!</button>
+      <p id=leistungen class="antwort"></p>
+      <p>Wann hat sie/er gelebt?</p>
+      <button onclick="zeigeZeit(person); this.parentNode.removeChild(this);">Rat mal!</button>
+      <p id=zeit class="antwort"></p>
+      <p>In welchen Ländern hat sie/er gearbeitet?</p>
+      <button onclick="zeigeArbeitsLand(person); this.parentNode.removeChild(this);">Rat mal!</button>
+      <p id=arbeitsLand class="antwort"></p>
+    </div>
+    <script type="text/javascript">
+      var person = data[0];
+      neuerRätsel(person);
+    </script>
+  </body>
+</html>
